@@ -4,9 +4,13 @@ off_target_predictions:
   class: File
   path: interactionmatrix/predictions/example_offtarget_predictions.tab
 
-on_target_predictions:
+huesken_table:
   class: File
-  path: interactionmatrix/predictions/example_ontarget_predictions.tab
+  path: interactionmatrix/predictions/ontarget/Huesken_table.tab
+
+mRNA_fasta:
+  class: File
+  path: 
 
 siRNA_fasta:
   class: File
