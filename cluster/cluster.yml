@@ -1,0 +1,11 @@
+
+
+siRNA_fasta:
+  class: File
+  path: ./test_siRNA.fa 
+
+HierClustering_executable:
+  class: File
+  path: ./program/HierClustering.exe
+
+

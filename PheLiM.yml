@@ -1,0 +1,23 @@
+
+
+siRNA_phenotype_associations:
+  class: File
+  path: ./phenotype/example_phenotype.tab 
+
+siRNA_clusters:
+  class: File
+  path: ./cluster/clusters_for_randomization.txt
+
+interaction_matrix:
+  class: File
+  path: ./interactionmatrix/output_pivoted.tab
+
+output_file: PheLiM_gene_contributions.tab
+
+ex_expressions_filter:
+  nofile: noexpression
+
+number_of_cores: 2
+  
+number_of_randomizations: 10
+

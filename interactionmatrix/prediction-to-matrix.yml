@@ -1,0 +1,8 @@
+off_target_predictions:
+  class: File
+  path: ./predictions/example_offtarget_predictions.tab
+on_target_predictions:
+  class: File
+  path: ./predictions/example_ontarget_predictions.tab
+
+

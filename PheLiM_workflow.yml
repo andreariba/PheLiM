@@ -1,0 +1,30 @@
+
+
+off_target_predictions:
+  class: File
+  path: interactionmatrix/predictions/example_offtarget_predictions.tab
+
+on_target_predictions:
+  class: File
+  path: interactionmatrix/predictions/example_ontarget_predictions.tab
+
+siRNA_fasta:
+  class: File
+  path: cluster/test_siRNA.fa
+
+phenotypes:
+  class: File
+  path: phenotype/example_phenotype.tab
+
+output: PheLiM_gene_contributions.tab
+
+HierClustering_executable: 
+  class: File
+  path: cluster/program/HierClustering.exe
+
+number_of_randomizations: 2
+
+number_of_cores: 20
+
+
+

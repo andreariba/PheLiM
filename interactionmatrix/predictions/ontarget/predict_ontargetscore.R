@@ -1,8 +1,15 @@
 rm(list=ls())
 
-library(MASS)
+suppressPackageStartupMessages(library(MASS))
+suppressPackageStartupMessages(library(argparse))
 
-args = commandArgs(trailingOnly=TRUE)
+parser <- ArgumentParser()
+
+parser$add_argument("huesken", nargs=1, type="character", help="Huesken siRNA downregulations")
+parser$add_argument("sites", nargs=1, type="character", help="siRNA fasta file")
+
+#parse arguments
+args <- parser$parse_args()
 
 tovector <- function(sequence,fold,duplex,acc8=0.0,acc16=0.0) { #
 	#selectedpos <- c(1,2,3,4,7,9,10,12,13,14,18,19)
@@ -39,7 +46,7 @@ tovector <- function(sequence,fold,duplex,acc8=0.0,acc16=0.0) { #
 	return(vec)
 }
 
-dfall <- read.table("Huesken_table.tab")
+dfall <- read.table(args$huesken)
 set <- sample.int(nrow(dfall), nrow(dfall)/9, replace = FALSE)
 dftest <- dfall[set,]
 dftrain <- dfall[! 1:nrow(dfall) %in% set,]
@@ -82,12 +89,12 @@ for(i in 1:200) {
 
 model <- colMeans(modelstock)
 
-dfNov <- read.table(args[1])
+dfNov <- read.table(args$sites)
 scoreNov <- c()
 for(i in 1:nrow(dfNov)) {
 	scoreNov <- c(scoreNov, tovector(dfNov[i,3],dfNov[i,4],dfNov[i,5],dfNov[i,6],dfNov[i,7]) %*% model) #,dftest[i,5],dftest[i,6]
 }
 
 dfNov <- cbind(dfNov,9.1*(scoreNov+b))
-write.table(dfNov[,c(2,1,8)], "ontarget_predictions.tab",sep="\t",row.names=F,col.names=F)
+write.table(dfNov[,c(2,1,8)], "ontarget_predictions.tab", sep="\t", row.names=F, col.names=F, quote=FALSE)
 

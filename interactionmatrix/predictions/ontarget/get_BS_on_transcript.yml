@@ -1,0 +1,9 @@
+
+mRNA_fasta:
+  class: File
+  path: mrna-sample.fa
+
+siRNA_fasta:
+  class: File
+  path: seqs-sample.fa
+

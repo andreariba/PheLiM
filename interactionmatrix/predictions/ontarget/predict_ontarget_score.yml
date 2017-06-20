@@ -1,0 +1,9 @@
+
+huesken_table:
+  class: File
+  path: Huesken_table.tab
+
+binding_sites:
+  class: File
+  path: outontargetsites.tab 
+
